@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Game</title>
+    <style>
+        body {
+            background-color: #ffe6e6;
+            color: #e63946;
+            font-family: 'Courier New', cursive;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 50px;
+        }
+        h1 {
+            font-size: 50px;
+            color: #e63946;
+            font-family: 'Dancing Script', cursive;
+        }
+        p {
+            font-size: 24px;
+        }
+        a {
+            font-size: 24px;
+            text-decoration: none;
+            color: #ff6b81;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Emoji Game!</h1>
+        <p>Find the emoji and level up!</p>
+        <a href="{{ url_for('game', level=1) }}">Start the game</a>
+    </div>
+</body>
+</html>

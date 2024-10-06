@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Surprise</title>
+    <style>
+        body {
+            background-color: #ffcccb; /* Light pink background */
+            color: #343a40;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+        .container {
+            position: relative; /* Allows for absolute positioning of hearts */
+            padding: 50px;
+            height: 100vh; /* Full height for centering */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+        }
+        h1 {
+            font-size: 50px;
+            color: #e63946; /* Red color */
+            font-family: 'Brush Script MT', cursive; /* Romantic font */
+            margin: 20px; /* Space around text */
+        }
+        p {
+            font-size: 24px;
+            margin: 10px; /* Space around text */
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 24px; /* Heart size */
+            opacity: 1; /* Fully visible */
+            animation: float 2s ease-in forwards; /* Floating animation */
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-200px); opacity: 0; } /* Fade out */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ message }}</h1>
+        <p>You mean the world to me! Let's create more beautiful memories together. 💕</p>
+    </div>
+    
+    <script>
+        // Function to create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️'; // Heart emoji
+            
+            // Random horizontal position
+            heart.style.left = Math.random() * 100 + 'vw'; 
+            // Random size between 24px and 48px
+            heart.style.fontSize = Math.random() * 24 + 24 + 'px'; 
+
+            // Set the initial position to the bottom of the viewport
+            heart.style.bottom = '0px'; 
+
+            // Append to body
+            document.body.appendChild(heart);
+
+            // Remove heart after animation ends
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        }
+
+        // Start creating hearts
+        setInterval(createHeart, 500); // Create a new heart every half second
+    </script>
+</body>
+</html>
